@@ -2,13 +2,13 @@
   "name": "backend-note",
   "version": "1.0.0",
   "description": "backend API for Note Web Application",
-  "homepage": "",
+  "homepage": "https://github.com/leonardolscuccimarra/fullstack-note#readme",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/leonardolscuccimarra/fullstack-note/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+"
+    "url": "git+https://github.com/leonardolscuccimarra/fullstack-note.git"
   },
   "license": "ISC",
   "author": "Leonardo L. Scuccimarra",
