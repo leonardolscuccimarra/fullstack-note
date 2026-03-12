@@ -1,0 +1,27 @@
+{
+  "name": "backend-note",
+  "version": "1.0.0",
+  "description": "backend API for Note Web Application",
+  "homepage": "",
+  "bugs": {
+    "url": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+"
+  },
+  "license": "ISC",
+  "author": "Leonardo L. Scuccimarra",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "dependencies": {
+    "@sequelize/mysql": "^7.0.0-alpha.48",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mysql2": "^3.19.0",
+    "sequelize": "^6.37.7"
+  }
+}
