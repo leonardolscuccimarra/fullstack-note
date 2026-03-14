@@ -1,3 +1,11 @@
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Minus, Plus, Save, Search } from "lucide-react";
@@ -13,7 +21,6 @@ export default function Home() {
           <input
             type="text"
             placeholder="Title"
-            value="Note 1"
             className="h-8 w-full rounded-lg p-2 text-black"
           />
           <button className="h-8 w-8 rounded-lg bg-muted/50">
@@ -32,10 +39,7 @@ export default function Home() {
       </header>
       <div className="flex flex-1 flex-col gap-4 p-4">
         <div className="h-full w-full rounded-lg bg-background">
-          <textarea className="h-full w-full rounded-lg p-2 text-black"
-          value= "This is a Sample Note">
-            
-          </textarea>
+          <textarea className="h-full w-full rounded-lg p-2 text-black"></textarea>
         </div>
       </div>
     </>
