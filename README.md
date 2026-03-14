@@ -29,16 +29,28 @@ MySQL 8.0.45
 
 
 /api/notes POST: Creates Note
+
 /api/notes/:id PUT: Updates Note ID
+
 /api/notes/:id DELETE: Deletes Note ID
+
 /api/notes/active GET: Returns Active Notes
+
 /api/notes/archived GET: Returns Archived Notes
+
 /api/notes/:id/category/:categoryId POST: Add Category to Note ID
+
 /api/notes/:id/category/:categoryId DELETE: Remove Category from Note ID
+
 /api/notes/by-category/:categoryId GET: Returns Notes by Category ID
 
+
 /api/categories POST: Creates Category
+
 /api/categories GET: Return Categories
+
 /api/categories/:id GET: Return Category by ID
+
 /api/categories/:id PUT: Update a Category by ID
+
 /api/categories/:id DELETE: Delete Category by ID
