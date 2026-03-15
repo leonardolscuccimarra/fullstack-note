@@ -58,15 +58,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         />
       </SidebarHeader>
       <SidebarContent className="gap-0">
+        <SidebarMenu>
         {data.navMain.map((item) => (
-                  <SidebarMenu>
-                      <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild>
-                          <a>{item.title}</a>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                  </SidebarMenu>
+          
+            <SidebarMenuItem key={item.id}>
+              <SidebarMenuButton asChild >
+                <a >{item.title}</a>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          
         ))}
+        </SidebarMenu>
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
