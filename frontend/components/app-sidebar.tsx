@@ -45,7 +45,7 @@ const rawData: RawFetchData = await fetchActiveNotes() ?? sampleData
 
 export const data: RawFetchData = {
   versions: rawData.versions ?? sampleData.versions,
-  navMain: rawData.navMain ?? [{title: "Error loading notes", items: [{title: "Error"}]}]
+  navMain: rawData.navMain ?? [{title: "Error loading notes"}]
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -58,39 +58,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         />
       </SidebarHeader>
       <SidebarContent className="gap-0">
-        {/* We create a collapsible SidebarGroup for each parent. */}
         {data.navMain.map((item) => (
-          <Collapsible
-            key={item.title}
-            title={item.title}
-            defaultOpen
-            className="group/collapsible"
-          >
-            <SidebarGroup>
-              <SidebarGroupLabel
-                asChild
-                className="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              >
-                <CollapsibleTrigger>
-                  {item.title}{" "}
-                  <ChevronRightIcon className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
-                </CollapsibleTrigger>
-              </SidebarGroupLabel>
-              <CollapsibleContent>
-                <SidebarGroupContent>
                   <SidebarMenu>
-                    {item.items.map((item) => (
                       <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild isActive={item.isActive}>
-                          <a href={item.url}>{item.title}</a>
+                        <SidebarMenuButton asChild>
+                          <a>{item.title}</a>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
-                    ))}
                   </SidebarMenu>
-                </SidebarGroupContent>
-              </CollapsibleContent>
-            </SidebarGroup>
-          </Collapsible>
         ))}
       </SidebarContent>
       <SidebarRail />
