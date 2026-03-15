@@ -29,18 +29,23 @@ interface ContentData {
     archived: boolean;
 }
 
+interface RawFetchData {
+  versions: string[];
+  navMain: ContentData[];
+}
+
 // This is sample data.
 import {sampleData} from "../lib/utils/sampledata.js"
 
 //actual import of data
 import {fetchActiveNotes, fetchArchivedNotes, fetchNotesByCategory} from "../services/api.fetch.js"
-const rawData = await fetchActiveNotes() ?? sampleData
+const rawData: RawFetchData = await fetchActiveNotes() ?? sampleData
 
 // TODO: Convert rawData into actual Data
 
-export const data = {
+export const data: RawFetchData = {
   versions: rawData.versions ?? sampleData.versions,
-  navMain: rawData.data ?? [{title: "Error loading notes", items: [{title: "Error"}]}]
+  navMain: rawData.navMain ?? [{title: "Error loading notes", items: [{title: "Error"}]}]
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {

@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "lib/utils/sampledata.js"  ],
+, "lib/utils/sampledata.js", "services/api.fetch.js"  ],
   "exclude": ["node_modules"]
 }

@@ -12,8 +12,7 @@ function normalizeBaseUrl(baseUrl) {
 export function getApiBaseUrl() {
   const URL = normalizeBaseUrl(process.env.NEXT_PUBLIC_API_URL ?? process.env.API_URL ?? "http://localhost");
   const PORT = process.env.NEXT_PUBLIC_API_PORT ?? process.env.API_PORT ?? 8080;
-
-  return `${URL}:${PORT}`
+  return `${URL}:${PORT}`;
 }
  
 export async function fetchActiveNotes() {
