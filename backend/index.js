@@ -9,8 +9,8 @@ import categoryRoutes from './src/routes/category.routes.js';
 dotenv.config();
 
 const app = express();
-const URL = process.env.URL || "http://localhost";
-const PORT = process.env.PORT || 8080;
+const URL = process.env.URL ?? "http://localhost";
+const PORT = process.env.PORT ?? 8080;
 
 
 app.use(express.json());
@@ -30,7 +30,7 @@ app.use('/api/categories', categoryRoutes);
         app.listen(PORT, () => console.log(
             `
             +---------------------------------------
-            Servidor listening: ${URL}:${PORT}
+            Server listening: ${URL}:${PORT}
             +---------------------------------------
             `));
     }

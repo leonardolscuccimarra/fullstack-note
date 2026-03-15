@@ -1,20 +1,31 @@
 /* import dotenv from "dotenv" ;
 
 dotenv.config(); */
-const URL = process.env.APIURL || "http://localhost";
-const PORT = process.env.APIPORT || 8080;
-const API = `${URL}:${PORT}`;
+const URL = process.env.API_URL ?? "http://localhost";
+const PORT = process.env.API_PORT ?? 8080;
+
+function normalizeBaseUrl(baseUrl) {
+  if (!baseUrl) return "";
+  return baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
+}
+
+export function getApiBaseUrl() {
+  const URL = normalizeBaseUrl(process.env.NEXT_PUBLIC_API_URL ?? process.env.API_URL ?? "http://localhost");
+  const PORT = process.env.NEXT_PUBLIC_API_PORT ?? process.env.API_PORT ?? 8080;
+
+  return `${URL}:${PORT}`
+}
  
 export async function fetchActiveNotes() {
-  const APICall = `${API}/active`
+  const APICall = `${getApiBaseUrl()}/api/notes/active`
     
     try {
         const response = await fetch(APICall);
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const err = await response.text();
+            throw new Error(err || `Error HTTP: ${response.status}`);
         }
-        const values = await response.json();
-        return values;
+        return await response.json();
 
     } catch (error) {
         console.error("Fetch error:", error);
@@ -23,15 +34,15 @@ export async function fetchActiveNotes() {
 }
 
 export async function fetchArchivedNotes() {
-  const APICall = `${API}/archived`
+  const APICall = `${getApiBaseUrl()}/api/notes//archived`
     
     try {
         const response = await fetch(APICall);
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const err = await response.text();
+            throw new Error(err || `Error HTTP: ${response.status}`);
         }
-        const values = await response.json();
-        return values;
+        return await response.json();
 
     } catch (error) {
         console.error("Fetch error:", error);
@@ -41,15 +52,15 @@ export async function fetchArchivedNotes() {
 
 export async function fetchNotesByCategory(categoryId){
     if (categoryId === null) throw new Error('No category selected for API fetch call');
-    const APICall = `${API}/api/notes/by-category/${categoryId}`;
+    const APICall = `${getApiBaseUrl()}/api/notes/by-category/${categoryId}`;
 
     try {
         const response = await fetch(APICall);
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const err = await response.text();
+            throw new Error(err || `Error HTTP: ${response.status}`);
         }
-        const values = await response.json();
-        return values;
+        return await response.json();
 
     } catch (error) {
         console.error("Fetch error:", error);
