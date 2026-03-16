@@ -30,6 +30,13 @@ interface ContentData {
 }
 
 interface RawFetchData {
+  success: boolean;
+  message: string;
+  versions?: string[];
+  data: ContentData[];
+}
+
+interface RenderData {
   versions: string[];
   navMain: ContentData[];
 }
@@ -43,9 +50,9 @@ const rawData: RawFetchData = await fetchActiveNotes() ?? sampleData
 
 // TODO: Convert rawData into actual Data
 
-export const data: RawFetchData = {
+export const data: RenderData = {
   versions: rawData.versions ?? sampleData.versions,
-  navMain: rawData.navMain ?? [{title: "Error loading notes"}]
+  navMain: rawData.data ?? [{title: "Error loading notes"}]
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
