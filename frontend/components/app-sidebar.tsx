@@ -46,7 +46,7 @@ import {sampleData} from "../lib/utils/sampledata.js"
 
 //actual import of data
 import {fetchActiveNotes, fetchArchivedNotes, fetchNotesByCategory} from "../services/api.fetch.js"
-const rawData: RawFetchData = await fetchActiveNotes() ?? sampleData
+const rawData: RawFetchData = await fetchActiveNotes()
 
 // TODO: Convert rawData into actual Data
 
